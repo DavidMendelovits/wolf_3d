@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 00:26:23 by hasmith           #+#    #+#             */
-/*   Updated: 2018/11/09 14:34:48 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/11/09 14:50:58 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void			wolf3d(char *mapname)
 {
 	t_map				*map;
-//	t_player			*player;
+	t_player			*player;
 
 
 	map = read_validate_map(mapname);
