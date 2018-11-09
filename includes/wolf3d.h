@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 00:26:23 by hasmith           #+#    #+#             */
-/*   Updated: 2018/11/09 14:30:38 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/11/09 14:46:03 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <math.h>
 # include <stdio.h>
 # include <pthread.h>
+# include <fcntl.h>
+# include <errno.h>
+# include <sys/types.h>
+
+# define USAGE "wolf3d -> Usage:\n./wolf3d [map]\n"
+# define MAP_ERROR "Invalid Map!\n"
 
 typedef struct		s_mlx
 {
@@ -48,7 +54,8 @@ typedef struct		s_point
 
 typedef struct		s_map
 {
-	t_point			size;
+	int				height;
+	int				width;
 	char			**map;
 	t_point			start;
 }					t_map;
@@ -66,18 +73,10 @@ typedef	struct		s_thread
 	int		count;
 }					t_thread;
 
+t_map			*read_validate_map(char *filename);
 
-void	create_image(t_mlx *m);
-void	draw(t_mlx *master, int y1, int x1, int color);
-void	pixel_str(t_mlx *m);
-void	set_hooks(t_mlx *m);
-void	move_forward(t_mlx *v);
-void	move_back(t_mlx *v);
-void	move_right(t_mlx *v);
-void	move_left(t_mlx *v);
-int		key_press_hook(int keycode, t_mlx *mast);
-int		mouse_motion_hook(int x, int y, t_mlx *m);
-int		mouse_press_hook(int code, int x, int y, t_mlx *m);
-void	pixel_put(t_mlx *mlx, int x, int y, int color);
-
+void			ft_print_strings(char **strings);
+char			**strsplit(char *str);
+char			*replace_char(char *s, int old, int new_);
+int				ptr_count(char **s);
 #endif 
