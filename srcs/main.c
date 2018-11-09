@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 00:26:23 by hasmith           #+#    #+#             */
-/*   Updated: 2018/11/07 00:34:51 by hasmith          ###   ########.fr       */
+/*   Updated: 2018/11/07 11:23:46 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		main(int argc, char *argv[])
 	ft_putchar('\n');
 
 	set_hooks(&mast);
-	// mlx_hook(mast.win, 2, 0, my_key_funct, &mast);
+//	 mlx_hook(mast.win, 2, 0, my_key_funct, &mast);
 
 	// mlx_do_sync(mast.mlx);
 	mlx_loop(mast.mlx);

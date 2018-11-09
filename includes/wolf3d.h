@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 00:26:23 by hasmith           #+#    #+#             */
-/*   Updated: 2018/11/07 00:38:41 by hasmith          ###   ########.fr       */
+/*   Updated: 2018/11/09 14:30:38 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,31 @@ typedef struct		s_mlx
 	int				theme;
 }					t_mlx;
 
-typedef	struct	s_thread
+typedef struct		s_point
+{
+	double			x;
+	double			y;
+}					t_point;
+
+typedef struct		s_map
+{
+	t_point			size;
+	char			**map;
+	t_point			start;
+}					t_map;
+
+typedef struct		s_player
+{
+	t_point			position;
+	t_point			direction;
+	t_point			plane;
+}					t_player;
+
+typedef	struct		s_thread
 {
 	t_mlx	*m;
 	int		count;
-}				t_thread;
+}					t_thread;
 
 
 void	create_image(t_mlx *m);
