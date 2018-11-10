@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 00:26:23 by hasmith           #+#    #+#             */
-/*   Updated: 2018/11/09 17:13:18 by hasmith          ###   ########.fr       */
+/*   Updated: 2018/11/09 18:43:37 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ typedef struct		s_point
 	double			y;
 }					t_point;
 
+typedef struct		s_point_int
+{
+	int				x;
+	int				y;
+}					t_point_int;
+
 typedef struct		s_map
 {
 	int				height;
@@ -80,6 +86,22 @@ typedef struct		s_player
 	t_point			plane;
 }					t_player;
 
+typedef struct		s_raycast
+{
+	t_point			pos; //start position for ray
+	t_point_int		map; //which coordinate are we in?
+	t_point			direction; //initial direction vector
+	t_point			plane; //camera plane
+	t_point			ray; //ray direction
+	t_point			delta_dist; //length of ray on both axis
+	t_point			side_dist; 
+	t_point_int		step; //direction to step in?
+	double			perp_wall_dist;
+	double			camera_x;
+	int				hit:1; //did we hit a wall?
+	int				side:1;
+}					t_raycast;
+
 typedef	struct		s_thread
 {
 	t_mlx	*m;
@@ -92,5 +114,7 @@ void			ft_print_strings(char **strings);
 char			**strsplit(char *str);
 char			*replace_char(char *s, int old, int new_);
 int				ptr_count(char **s);
-void		set_hooks(t_mlx *m);
+void			set_hooks(t_mlx *m);
+void			start(t_mlx *m, t_map *map);
+int 			verLine(int x, int y1, int y2, int color, t_mlx *m);
 #endif 
