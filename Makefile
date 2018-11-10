@@ -7,7 +7,7 @@ OBJ_DIR = ./objs/
 INC_DIR = ./includes/
 LIBFT_DIR = ./libft/
 
-SRC_FILES = main.c map.c helpers.c
+SRC_FILES = main.c map.c helpers.c hooks.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
@@ -24,7 +24,7 @@ all: obj $(LIBFT) $(NAME)
 obj:
 	@mkdir -p $(OBJ_DIR)
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
-	@gcc $(FLAGS) -I $(INC_DIR) -I $(LIBFT_DIR) -o $@ -c $<
+	@gcc -I $(INC_DIR) -I $(LIBFT_DIR) -o $@ -c $<
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR)

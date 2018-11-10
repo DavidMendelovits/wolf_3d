@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 00:26:23 by hasmith           #+#    #+#             */
-/*   Updated: 2018/11/09 14:46:03 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:13:18 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,17 @@
 # define USAGE "wolf3d -> Usage:\n./wolf3d [map]\n"
 # define MAP_ERROR "Invalid Map!\n"
 
+
+///////////////// COLORS
+#define RGB_Red 0xFF0000  //red
+#define RGB_Green 0x008000  //green
+#define RGB_Blue 0x0000FF   //blue
+#define RGB_White 0xFFFFFF  //white
+#define RGB_Yellow 0xFFFF00 //yellow
+
+
+
+
 typedef struct		s_mlx
 {
 	int				*img_int;
@@ -35,7 +46,9 @@ typedef struct		s_mlx
 	int				endian;
 	void			*mlx;
 	void			*win;
+	int				im_buff_size;
 
+	int				exit;
 	int				space;
 	int				wsize;
 	int				height;
@@ -79,4 +92,5 @@ void			ft_print_strings(char **strings);
 char			**strsplit(char *str);
 char			*replace_char(char *s, int old, int new_);
 int				ptr_count(char **s);
+void		set_hooks(t_mlx *m);
 #endif 
