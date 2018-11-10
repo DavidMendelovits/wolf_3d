@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 00:26:23 by hasmith           #+#    #+#             */
-/*   Updated: 2018/11/09 14:50:58 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/11/09 15:04:06 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void			wolf3d(char *mapname)
 		write(2, MAP_ERROR, sizeof(MAP_ERROR));
 		return ;
 	}
-//	player = init_player(map);
+	player = init_player(map);
+	start(player, map);
 }
 
 int		main(int argc, char *argv[])

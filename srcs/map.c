@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:35:10 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/11/09 14:50:24 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/11/09 16:33:10 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int				validate_map(t_map **map, int fd)
 	map_[p] = NULL;
 	printf("start at [%f][%f]\n", (*map)->start.y, (*map)->start.x);
 	ft_print_strings(map_);
+	(*map)->map = map_;
 	return (1);
 }
 
@@ -110,5 +111,6 @@ t_map			*read_validate_map(char *filename)
 	printf("map->width = %d\nmap->height = %d\n", map->width, map->height);
 	if (!validate_map(&map, fd))
 		return (NULL);
+	ft_print_strings(map->map);
 	return (map);
 }

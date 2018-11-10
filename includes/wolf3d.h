@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 00:26:23 by hasmith           #+#    #+#             */
-/*   Updated: 2018/11/09 14:46:03 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/11/09 16:24:21 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,19 @@
 # define USAGE "wolf3d -> Usage:\n./wolf3d [map]\n"
 # define MAP_ERROR "Invalid Map!\n"
 
+//# define BLUE 0x4169e1
+//# define RED 0xcd5c5c
+//# define YELLOW 0xadff2f
+# define GRAY 0x696969
+typedef struct		s_point
+{
+	double			x;
+	double			y;
+}					t_point;
+
 typedef struct		s_mlx
 {
-	int				*img_int;
+	char			*img_int;
 	void			*mlx_ptr;
 	void			*img_ptr;
 	int				bpp;
@@ -35,22 +45,15 @@ typedef struct		s_mlx
 	int				endian;
 	void			*mlx;
 	void			*win;
-
+	int				color;
+	t_point			size;
 	int				space;
-	int				wsize;
-	int				height;
-	int				width;
+//	int				wsize;
 	int				mouse_x;
 	int				mouse_y;
 
 	int				theme;
 }					t_mlx;
-
-typedef struct		s_point
-{
-	double			x;
-	double			y;
-}					t_point;
 
 typedef struct		s_map
 {
@@ -79,4 +82,6 @@ void			ft_print_strings(char **strings);
 char			**strsplit(char *str);
 char			*replace_char(char *s, int old, int new_);
 int				ptr_count(char **s);
+void			start(t_player *player, t_map *map);
+t_player		*init_player(t_map *map);
 #endif 
